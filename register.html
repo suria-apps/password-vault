@@ -1,0 +1,109 @@
+<!doctype html>
+
+<html lang="en"> 
+
+ <head> 
+
+  <meta charset="UTF-8"> 
+
+  <title>Password Vault</title> 
+
+  <link rel="stylesheet" href="styleregister.css">
+  
+ </head> 
+
+ <body> <!-- partial:index.partial.html --> 
+
+  <section> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> 
+
+ 
+   <div class="register"> 
+
+    <div class="content"> 
+
+     <h2>Register</h2> 
+
+     <div class="form"> 
+
+      <div class="inputBox"> 
+
+      <input type="text" id="email-input-register" required> <i>E-mail</i> 
+     
+      </div> 
+
+      <div class="inputBox"> 
+
+       <input type="text" id="username-input-register" required> <i>Username</i> 
+
+      </div> 
+
+      <div class="inputBox"> 
+
+       <input type="password" id="password-input-register" required> <i>Password</i> 
+
+      </div> 
+
+      <div class="links"> <a href="index.html">Login</a>
+        
+      </div> 
+
+      <div class="inputBox"> 
+
+       <input type="submit"  value="Register" onclick="sendDataRegister()"> 
+
+      </div> 
+      
+
+     </div> 
+
+     <div class="inputBox" id="sent-data-container"></div>
+     
+    </div> 
+
+   </div> 
+
+  </section> <!-- partial --> 
+
+ </body>
+<script>
+    var xhr = null;
+
+    getXmlHttpRequestObject = function () {
+        if (!xhr) {
+            // Create a new XMLHttpRequest object 
+            xhr = new XMLHttpRequest();
+        }
+        return xhr;
+    };
+
+    function sendDataCallback() {
+        // Check response is ready or not
+        if (xhr.readyState == 4 && xhr.status == 201) {
+            console.log("Data creation response received!");
+            // getDate();
+            dataDiv = document.getElementById('sent-data-container');
+            // Set current data text
+            dataDiv.innerHTML = xhr.responseText;
+        }
+    }
+
+    function sendDataRegister() {
+        emailToSend = document.getElementById('email-input-register').value;
+        usernameToSend = document.getElementById('username-input-register').value;
+        passwordToSend = document.getElementById('password-input-register').value;
+        if (!emailToSend || !usernameToSend || !passwordToSend){
+            dataDiv = document.getElementById('sent-data-container');
+            dataDiv.innerHTML = "Please make sure to fill out all the fields";
+            return;
+        }
+        console.log("Sending data: " + usernameToSend);
+        xhr = getXmlHttpRequestObject();
+        xhr.onreadystatechange = sendDataCallback;
+        // asynchronous requests
+        xhr.open("POST", "http://192.168.0.3:6969/register", true);
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        // Send the request over the network
+        xhr.send(JSON.stringify({"email": emailToSend, "username": usernameToSend, "password": passwordToSend}));
+    }
+</script>
+</html>

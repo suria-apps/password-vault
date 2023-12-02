@@ -1,0 +1,285 @@
+<!doctype html>
+
+<html lang="en"> 
+
+ <head> 
+
+  <meta charset="UTF-8"> 
+
+  <title>Password Vault</title> 
+
+  <link rel="stylesheet" href="stylelogin.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="stylelogin2.css">
+
+ </head> 
+
+ <body> <!-- partial:index.partial.html --> 
+
+  <section> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> 
+
+   <div class="loggedin"> 
+
+    <div class="content"> 
+
+     <h2>Modify previously stored password</h2> 
+
+     <div class="form"> 
+
+      <div class="inputBox"> 
+
+       <input type="text" id="website-input-modify" required> <i>Webite</i> 
+
+      </div> 
+
+      <div class="inputBox"> 
+
+       <input type="text" id="email-input-modify" required> <i>E-mail</i> 
+
+      </div> 
+
+      <div class="inputBox"> 
+
+       <input type="password" id="password-input-modify" required> <i>Password</i> 
+ 
+      </div>  
+
+      <div class="inputBox"> 
+
+       <input type="submit" value="Modify" onclick="sendDataModifyPasssword()"> 
+
+      </div> 
+      <div id="sent-data-container-modify"><h1></h1></div>
+     </div> 
+    </div> 
+    
+    
+   </div> 
+
+   <div class="signin"> 
+
+    <div class="content"> 
+
+     <h2>Search for your passwords</h2> 
+
+     <div class="form"> 
+
+      <div class="inputBox"> 
+
+       <input type="text" id="website-input-retrieve" required> <i>Website</i> 
+
+      </div> 
+
+      <div class="inputBox"> 
+
+       <input type="text" id="email-input-retrieve" required> <i>E-mail</i> 
+
+      </div> 
+
+      <div class="inputBox"> 
+
+       <input type="submit" value="Search" onclick="sendDataSearchPassword()"> 
+
+      </div> 
+
+     </div> 
+     <div id="sent-data-container-password"><h1></h1></div>
+    </div> 
+   </div>
+   
+
+   <div class="loggedin2"> 
+
+    <div class="content"> 
+
+     <h2>Add new password to password bank</h2> 
+
+     <div class="form"> 
+
+      <div class="inputBox"> 
+
+       <input type="text" id="website-input-register" required> <i>Website</i> 
+
+      </div> 
+
+      <div class="inputBox"> 
+
+       <input type="text" id="email-input-register" required> <i>E-mail</i> 
+
+      </div> 
+
+      <div class="inputBox"> 
+
+        <input type="password" id="password-input-register" required> <i>Password</i> 
+ 
+       </div>
+
+      <div class="inputBox"> 
+
+       <input type="submit" value="Add Password" onclick="sendDataAdd()"> 
+
+      </div> 
+
+     </div> 
+     <div id="sent-data-container"><h1></h1></div>
+    </div> 
+   </div>
+
+  </section> <!-- partial --> 
+
+ </body>
+<script>
+    let loggedInUserEmail = sessionStorage.getItem('email');
+    let access_token = sessionStorage.getItem('access_token')
+    // document.getElementById("data").innerHTML = `Logged in as: ${loggedInUserEmail}`;
+
+    var xhr = null;
+
+
+    getXmlHttpRequestObject = function () {
+        if (!xhr) {
+            // Create a new XMLHttpRequest object 
+            xhr = new XMLHttpRequest();
+        }
+        return xhr;
+    };
+
+    function sendDataAddCallback() {
+        // Check response is ready or not
+        console.log(xhr.readyState)
+        if (xhr.readyState == 4 && xhr.status == 201) {
+            console.log("Data creation response received!");
+            dataDiv = document.getElementById('sent-data-container');
+            // Set current data text
+            var json = JSON.parse(xhr.responseText)
+            dataDiv.innerHTML = json["message"]
+        }
+        if (xhr.readyState == 4 && xhr.status == 202) {
+            console.log("Data creation response received!");
+            dataDiv = document.getElementById('sent-data-container');
+            // Set current data text
+            var json = JSON.parse(xhr.responseText)
+            dataDiv.innerHTML = json["message"]
+        }
+    }
+    function sendDataAdd() {
+        websiteToSend = document.getElementById('website-input-register').value;
+        var labelObj = document.getElementById('website-input-register');
+        labelObj.value = "";
+
+        emailToSend = document.getElementById('email-input-register').value;
+        var labelObj = document.getElementById('email-input-register');
+        labelObj.value = "";
+
+        passwordToSend = document.getElementById('password-input-register').value;
+        var labelObj = document.getElementById('password-input-register');
+        labelObj.value = "";
+
+        if (!websiteToSend || !passwordToSend || !emailToSend){
+            dataDiv = document.getElementById('sent-data-container');
+            dataDiv.innerHTML = "Please make sure to fill out all the fields";
+            return;
+        }
+        xhr = getXmlHttpRequestObject();
+        console.log(xhr)
+        xhr.onreadystatechange = sendDataAddCallback;
+        console.log(xhr.onreadystatechange)
+        // asynchronous requests
+        xhr.open("POST", "http://192.168.0.3:6969/addPassword", true);
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        // Send the request over the network
+        xhr.send(JSON.stringify({"userEmail": loggedInUserEmail, "website": websiteToSend, "email": emailToSend, "password": passwordToSend}));
+    }
+
+
+    function sendDataPasswordCallback() {
+        // Check response is ready or not
+        console.log("testting here")
+        console.log(xhr.readyState)
+        if (xhr.readyState == 4 && xhr.status == 201) {
+            console.log("Data creation response received!");
+            dataDiv = document.getElementById('sent-data-container-password');
+            // Set current data text
+            var json = JSON.parse(xhr.responseText)
+            dataDiv.innerHTML = json["message"]
+        }
+        if (xhr.readyState == 4 && xhr.status == 202) {
+            console.log("Data creation response received, error!");
+            dataDiv = document.getElementById('sent-data-container-password');
+            // Set current data text
+            var json = JSON.parse(xhr.responseText)
+            dataDiv.innerHTML = json["message"]
+        }
+    }
+    function sendDataSearchPassword() {
+        websiteToSend = document.getElementById('website-input-retrieve').value;
+        emailToSend = document.getElementById('email-input-retrieve').value;
+        if (!websiteToSend || !emailToSend){
+            dataDiv = document.getElementById('sent-data-container-password');
+            dataDiv.innerHTML = "Please make sure to fill out all the fields";
+            return;
+        }
+        xhr = getXmlHttpRequestObject();
+        console.log(xhr)
+        xhr.onreadystatechange = sendDataPasswordCallback;
+        console.log(xhr.onreadystatechange)
+        // asynchronous requests
+        xhr.open("POST", "http://192.168.0.3:6969/viewAllPasswords", true);
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        // Send the request over the network
+        xhr.send(JSON.stringify({"username": loggedInUserEmail, "website": websiteToSend, "email": emailToSend}));
+    }
+
+
+    function sendDataModifyCallback() {
+        // Check response is ready or not
+        if (xhr.readyState == 4 && xhr.status == 201) {
+            console.log("Data creation response received!");
+            dataDiv = document.getElementById('sent-data-container-modify');
+            // Set current data text
+            var json = JSON.parse(xhr.responseText)
+            dataDiv.innerHTML = json["message"]
+        }
+        if (xhr.readyState == 4 && xhr.status == 202) {
+            console.log("Data creation response received!");
+            dataDiv = document.getElementById('sent-data-container-modify');
+            // Set current data text
+            var json = JSON.parse(xhr.responseText)
+            dataDiv.innerHTML = json["message"];
+        }
+    }
+    function sendDataModifyPasssword(){
+        websiteToSend = document.getElementById('website-input-modify').value;
+
+        emailToSend = document.getElementById('email-input-modify').value;
+
+        passwordToSend = document.getElementById('password-input-modify').value;
+
+        if (!websiteToSend || !passwordToSend || !emailToSend){
+            dataDiv = document.getElementById('sent-data-container-modify');
+            dataDiv.innerHTML = "Please make sure to fill out all the fields";
+            return;
+        }
+
+        var labelObj = document.getElementById('website-input-modify');
+        labelObj.value = "";
+        var labelObj = document.getElementById('email-input-modify');
+        labelObj.value = "";
+        var labelObj = document.getElementById('password-input-modify');
+        labelObj.value = "";
+
+        if (confirm(`Replace password for ${websiteToSend}?`)) {
+
+            xhr = getXmlHttpRequestObject();
+            xhr.onreadystatechange = sendDataModifyCallback;
+            // asynchronous requests
+            xhr.open("POST", "http://192.168.0.3:6969/modifyPassword", true);
+            xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            // Send the request over the network
+            xhr.send(JSON.stringify({"username": loggedInUserEmail, "website": websiteToSend, "email": emailToSend, "password": passwordToSend}));
+        } else {
+            txt = "You pressed Cancel!";
+        }
+    }
+</script>
+</html>

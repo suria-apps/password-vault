@@ -1,0 +1,119 @@
+<!doctype html>
+
+<html lang="en"> 
+
+ <head> 
+
+  <meta charset="UTF-8"> 
+
+  <title>Password Vault</title> 
+
+  <link rel="stylesheet" href="style.css">
+  
+ </head> 
+
+ <body> <!-- partial:index.partial.html --> 
+
+  <section> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> 
+
+ 
+   <div class="signin"> 
+
+    <div class="content"> 
+
+     <h2>Sign In</h2> 
+
+     <div class="form"> 
+
+     <div class="inputBox"> 
+
+     <input type="text" id="email-input-login" required> <i>E-mail</i> 
+    
+     </div>  
+
+      <div class="inputBox"> 
+
+       <input type="password" id="password-input-login" required> <i>Password</i> 
+
+      </div> 
+
+      <div class="links"> <a href="forgot_password.html">Forgot Password</a> <a href="register.html">Signup</a> 
+
+      </div> 
+
+      <div class="inputBox"> 
+
+       <input type="submit" value="Login" onclick="sendDataLogin()"> 
+
+      </div> 
+
+     </div> 
+
+     <div class='inputBox' id="sent-data-container-login"></div>
+
+    </div> 
+    
+   </div> 
+
+  </section> <!-- partial --> 
+
+ </body>
+<script>
+
+    var xhr = null;
+
+    getXmlHttpRequestObject = function () {
+        if (!xhr) {
+            // Create a new XMLHttpRequest object 
+            xhr = new XMLHttpRequest();
+        }
+        return xhr;
+    }
+
+    function sendDataCallBackLogin() {
+        // Check response is ready or not
+        if (xhr.readyState == 4 && xhr.status == 201) {
+            console.log("Data creation response received!");
+            // getDate();
+            dataDiv = document.getElementById('sent-data-container-login');
+            // Set current data text
+            console.log(dataDiv)
+            dataDiv.innerHTML = xhr.responseText;
+            emailVerified = document.getElementById('email-input-login').value;
+            var response_json = JSON.parse(xhr.responseText)
+            access_token = response_json["access_token"]
+            sessionStorage.setItem("email", emailVerified)
+            sessionStorage.setItem("access_token", emailVerified)
+            window.location.href="login.html";
+        }
+        if (xhr.readyState == 4 && xhr.status == 202) {
+            console.log("Data creation response received!");
+            // getDate();
+            dataDiv = document.getElementById('sent-data-container-login');
+            // Set current data text
+            dataDiv.innerHTML = xhr.responseText;
+        }
+    }
+
+    function sendDataLogin() {
+        emailToSend = document.getElementById('email-input-login').value;
+        // usernameToSend = document.getElementById('username-input-login').value;
+        passwordToSend = document.getElementById('password-input-login').value;
+        if (!emailToSend || !passwordToSend){
+            dataDiv = document.getElementById('sent-data-container-login');
+            dataDiv.innerHTML = "Please make sure to fill out all the fields";
+            return;
+        }
+        console.log("Sending data: " + emailToSend + "," + passwordToSend);
+        xhr = getXmlHttpRequestObject();
+        xhr.onreadystatechange = sendDataCallBackLogin;
+        // asynchronous requests
+        xhr.open("POST", "http://192.168.0.3:6969/login", true);
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        // Send the request over the network
+        xhr.send(JSON.stringify({"email": emailToSend, "password": passwordToSend}));
+    }
+    
+
+</script>
+</html>
